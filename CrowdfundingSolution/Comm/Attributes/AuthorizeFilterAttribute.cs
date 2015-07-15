@@ -22,7 +22,7 @@ namespace CrowdfundingSolution.Comm.Attributes
                 throw new ArgumentNullException("filterContext");
             }
             var path = filterContext.HttpContext.Request.Path.ToLower();
-            if (path == "/" || path == "/Main/Login".ToLower() || path == "/Main/UserLogin".ToLower())//读取配置文件
+            if (path == "/" || path == "/Account/Login".ToLower() || path == "Account/Register".ToLower())//读取配置文件
                 return;//忽略对Login登录页的权限判定
 
             object[] attrs = filterContext.ActionDescriptor.GetCustomAttributes(typeof(ViewPageAttribute), true);
