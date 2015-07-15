@@ -83,10 +83,10 @@
     <Compile Include="Model\CrowdfundingPlan.cs">
       <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CrowdfundingPlan.Designer.cs">
+    <Compile Include="Model\dbObject.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrowdfundingPlan.edmx</DependentUpon>
+      <DependentUpon>dbObject.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\CrowdfundingPlan1.cs">
       <AutoGen>True</AutoGen>
@@ -105,27 +105,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\CrowdfundingPlan.edmx">
+    <EntityDeploy Include="Model\dbObject.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CrowdfundingPlan.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbObject.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Model\CrowdfundingPlan.edmx.diagram">
-      <DependentUpon>CrowdfundingPlan.edmx</DependentUpon>
+    <None Include="Model\dbObject.edmx.diagram">
+      <DependentUpon>dbObject.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\CrowdfundingPlan.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CrowdfundingPlan.edmx</DependentUpon>
+      <DependentUpon>dbObject.edmx</DependentUpon>
       <LastGenOutput>CrowdfundingPlan.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\CrowdfundingPlan.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CrowdfundingPlan.edmx</DependentUpon>
+      <DependentUpon>dbObject.edmx</DependentUpon>
       <LastGenOutput>CrowdfundingPlan1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
