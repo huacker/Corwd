@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CrowdfundingSolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="CrowdfundingSolution.DAL.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="ID" />
@@ -225,8 +215,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CrowdfundingSolutionModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="CrowdfundingSolutionDALModelStoreContainer">
           <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -260,17 +249,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CrowdfundingSolutionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="CrowdfundingSolution.DAL.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="ID" />
@@ -446,7 +425,6 @@
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
         </Association>
         <EntityContainer Name="CrowdfundingSolutionEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="Album" EntityType="Self.Album" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
@@ -476,19 +454,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CrowdfundingSolutionModelStoreContainer" CdmEntityContainer="CrowdfundingSolutionEntities">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="CrowdfundingSolutionDALModelStoreContainer" CdmEntityContainer="CrowdfundingSolutionEntities">
           <EntitySetMapping Name="Album">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Album">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.Album">
               <MappingFragment StoreEntitySet="Album">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BasicID" ColumnName="BasicID" />
@@ -498,7 +466,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.AspNetRoles">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -506,7 +474,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.AspNetUserClaims">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.AspNetUserClaims">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -516,7 +484,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.AspNetUserLogins">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.AspNetUserLogins">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -525,7 +493,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.AspNetUsers">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -543,7 +511,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Attachment">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Attachment">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.Attachment">
               <MappingFragment StoreEntitySet="Attachment">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BasicID" ColumnName="BasicID" />
@@ -553,7 +521,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Basic">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Basic">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.Basic">
               <MappingFragment StoreEntitySet="Basic">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
@@ -579,7 +547,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contact">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Contact">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.Contact">
               <MappingFragment StoreEntitySet="Contact">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BasicID" ColumnName="BasicID" />
@@ -592,7 +560,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CrowdfundingPlan">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.CrowdfundingPlan">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.CrowdfundingPlan">
               <MappingFragment StoreEntitySet="CrowdfundingPlan">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ShortAlias" ColumnName="ShortAlias" />
@@ -607,7 +575,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Detailed">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Detailed">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.Detailed">
               <MappingFragment StoreEntitySet="Detailed">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BasicID" ColumnName="BasicID" />
@@ -622,7 +590,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProjectManage">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.ProjectManage">
+            <EntityTypeMapping TypeName="CrowdfundingSolution.DAL.Model.ProjectManage">
               <MappingFragment StoreEntitySet="ProjectManage">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BasicID" ColumnName="BasicID" />
@@ -632,7 +600,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CrowdfundingSolutionModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CrowdfundingSolution.DAL.Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>

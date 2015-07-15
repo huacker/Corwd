@@ -52,85 +52,82 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Album.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetRoles.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUserClaims.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUserLogins.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUsers.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Attachment.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Basic.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Contact.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CrowdfundingPlan.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrowdfundingPlan.Context.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CrowdfundingPlan.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\dbObject.Designer.cs">
+    <Compile Include="Model\dbObjectModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbObject.edmx</DependentUpon>
+      <DependentUpon>dbObjectModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CrowdfundingPlan1.cs">
+    <Compile Include="Model\dbObjectModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\C__MigrationHistory.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+    <Compile Include="Model\dbObjectModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbObjectModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Detailed.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ProjectManage.cs">
-      <DependentUpon>CrowdfundingPlan.tt</DependentUpon>
+      <DependentUpon>dbObjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\dbObject.edmx">
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\dbObjectModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbObject.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbObjectModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Model\dbObject.edmx.diagram">
-      <DependentUpon>dbObject.edmx</DependentUpon>
+    <None Include="Model\dbObjectModel.edmx.diagram">
+      <DependentUpon>dbObjectModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\CrowdfundingPlan.Context.tt">
+    <Content Include="Model\dbObjectModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbObject.edmx</DependentUpon>
-      <LastGenOutput>CrowdfundingPlan.Context.cs</LastGenOutput>
+      <DependentUpon>dbObjectModel.edmx</DependentUpon>
+      <LastGenOutput>dbObjectModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\CrowdfundingPlan.tt">
+    <Content Include="Model\dbObjectModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbObject.edmx</DependentUpon>
-      <LastGenOutput>CrowdfundingPlan1.cs</LastGenOutput>
+      <DependentUpon>dbObjectModel.edmx</DependentUpon>
+      <LastGenOutput>dbObjectModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
