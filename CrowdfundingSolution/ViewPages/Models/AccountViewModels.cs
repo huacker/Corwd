@@ -48,8 +48,13 @@ namespace ViewPages.Models
 
     public class LoginViewModel
     {
+        //[Required]
+        //[Display(Name = "电子邮件")]
+        //[EmailAddress]
+        //public string Email { get; set; }
+
         [Required]
-        [Display(Name = "电子邮件")]
+        [Display(Name = "手机号码")]
         [EmailAddress]
         public string Email { get; set; }
 
