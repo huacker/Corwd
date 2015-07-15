@@ -55,8 +55,8 @@ namespace ViewPages.Models
 
         [Required]
         [Display(Name = "手机号码")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [RegularExpression(@"^1[3458][0-9]{9}$", ErrorMessage = "手机号格式不正确")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -69,10 +69,15 @@ namespace ViewPages.Models
 
     public class RegisterViewModel
     {
+        //[Required]
+        //[EmailAddress]
+        //[Display(Name = "电子邮件")]
+        //public string Email { get; set; }
+
         [Required]
-        [EmailAddress]
-        [Display(Name = "电子邮件")]
-        public string Email { get; set; }
+        [Display(Name = "手机号码")]
+        [RegularExpression(@"^1[3458][0-9]{9}$", ErrorMessage = "手机号格式不正确")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
@@ -88,10 +93,15 @@ namespace ViewPages.Models
 
     public class ResetPasswordViewModel
     {
+        //[Required]
+        //[EmailAddress]
+        //[Display(Name = "电子邮件")]
+        //public string Email { get; set; }
+
         [Required]
-        [EmailAddress]
-        [Display(Name = "电子邮件")]
-        public string Email { get; set; }
+        [Display(Name = "手机号码")]
+        [RegularExpression(@"^1[3458][0-9]{9}$", ErrorMessage = "手机号格式不正确")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
