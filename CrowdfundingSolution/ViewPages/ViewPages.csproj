@@ -247,6 +247,10 @@
       <Project>{0ebfa114-7a5c-49b1-970b-57aa64a09365}</Project>
       <Name>Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BLLInterface\BLLInterface.csproj">
+      <Project>{2de29135-4083-40e9-bfdc-ede4b37c005f}</Project>
+      <Name>BLLInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
