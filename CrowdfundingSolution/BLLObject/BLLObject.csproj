@@ -57,9 +57,9 @@
       <Project>{2de29135-4083-40e9-bfdc-ede4b37c005f}</Project>
       <Name>BLLInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{3a1f22df-1d63-4873-b38a-21e58a41b024}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{1de25e27-2959-4d8f-9f74-87ec966b7f5f}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
