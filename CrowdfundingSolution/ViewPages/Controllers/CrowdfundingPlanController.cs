@@ -25,8 +25,24 @@ namespace ViewPages.Controllers
         public ViewResult Add()
         {
             CrowdfundingPlan plan = new CrowdfundingPlan();
-            plan.Add();
+           // plan.Add();
             return View();
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Add([Bind(Include = "ShortAlias，CrowdfundingPlan，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate")] CrowdfundingPlanModels model)//Post post
+        {
+            if (ModelState.IsValid)
+            {
+                var vl = model.ShortAlias;
+                //db.Posts.Add(post);
+                //await db.SaveChangesAsync();
+                //return RedirectToAction("Index");
+            }
+            //ViewBag.CategoryId = new SelectList(db.Categories， "Id"， "Title"， post.CategoryId);
+            return View(model);//post
         }
     }
 }

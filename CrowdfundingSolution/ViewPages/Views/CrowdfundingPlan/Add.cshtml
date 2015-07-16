@@ -1,5 +1,51 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@using ViewPages.Models
+@model CrowdfundingPlanModels
+@{
+    ViewBag.Title = "添加众筹计划";
 }
+<div class="row">
+    <div class="col-md-8">
+        <section id="ContentForm">
+            @using (Html.BeginForm("Add", "CrowdfundingPlan", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>添加众筹计划</h4>
+                <hr/>
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ShortAlias, new {@class = "col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ShortAlias, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.ShortAlias, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CrowdfundingPlan, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.CrowdfundingPlan)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="提交" class="btn btn-default"/>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval","~/Content/ueditor/ueditor.config.js", "~/Content/ueditor/ueditor.all.js")
+    <script type="text/javascript">
+        var editorOption = {
+            initialFrameWidth:784,
+            initialFrameHeight:400
+        };
+        var editor = new baidu.editor.ui.Editor(editorOption);
+        editor.render('CrowdfundingPlan');
+        $('form').submit(function () {
+            $('#CrowdfundingPlan').val(editor.getContent());
+        });
+    </script>
+}
