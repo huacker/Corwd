@@ -172,17 +172,20 @@
     <Compile Include="Content\ueditor\net\App_Code\PathFormater.cs" />
     <Compile Include="Content\ueditor\net\App_Code\UploadHandler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CrowdDetailsControllers.cs" />
     <Compile Include="Controllers\CrowdfundingPlanController.cs" />
+    <Compile Include="Controllers\CrowdReleaseControllec.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CrowdDetailsModels.cs" />
     <Compile Include="Models\CrowdfundingPlanModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Release.cs" />
+    <Compile Include="Models\CrowdReleaseModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -522,6 +525,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CrowdfundingPlan\Add.cshtml" />
+    <Content Include="Views\CrowdRelease\ReleaseAdd.cshtml" />
+    <Content Include="Views\CrowdRelease\DetailsAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
