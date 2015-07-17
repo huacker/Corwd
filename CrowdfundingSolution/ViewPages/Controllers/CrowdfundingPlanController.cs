@@ -11,7 +11,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ViewPages.Models;
 using CrowdfundingSolution.Base;
+using CrowdfundingSolution.BLLInterface;
 using CrowdfundingSolution.BLLObject;
+using System;
+using System.Collections.Generic;
 
 namespace ViewPages.Controllers
 {
@@ -24,7 +27,7 @@ namespace ViewPages.Controllers
 
         public ViewResult Add()
         {
-            CrowdfundingPlan plan = new CrowdfundingPlan();
+           // CrowdfundingPlan plan = new CrowdfundingPlan();
            // plan.Add();
             return View();
         }
@@ -32,17 +35,33 @@ namespace ViewPages.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Add([Bind(Include = "ShortAlias，CrowdfundingPlan，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate")] CrowdfundingPlanModels model)//Post post
+        public async Task<ActionResult> Add(FormCollection coll)//，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate
         {
-            if (ModelState.IsValid)
-            {
-                var vl = model.ShortAlias;
-                //db.Posts.Add(post);
-                //await db.SaveChangesAsync();
-                //return RedirectToAction("Index");
-            }
-            //ViewBag.CategoryId = new SelectList(db.Categories， "Id"， "Title"， post.CategoryId);
-            return View(model);//post
+            #region 自动绑定测试
+
+            ////UpdateModel(model, new FormValueProvider(ControllerContext));
+            //if (ModelState.IsValid)
+            //{
+            //    var vl = model.ShortAlias;
+            //    //db.Posts.Add(post);
+            //    //await db.SaveChangesAsync();
+            //    //return RedirectToAction("Index");
+            //}
+
+            #endregion
+
+            Dictionary<string,string> data = new Dictionary<string, string>();
+            data["ShortAlias"] = coll["ShortAlias"];
+            data["CrowdfundingPlan"] = coll["CrowdfundingPlan"];
+            data["CrowdfundingAmount"] = coll["CrowdfundingAmount"];
+            data["Percentage"] = coll["Percentage"];
+            data["Prerelease"] = coll["Prerelease"];
+            data["BegingDate"] = coll["BegingDate"];
+            data["EndDate"] = coll["EndDate"];
+
+            ICrowdfundingPlan plan = new CrowdfundingPlan();
+            plan.Add(data);
+            return View();//post
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ViewPages.Models
 {
-    [Bind(Include = "ShortAlias，CrowdfundingPlan，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate")]
+    //[Bind(Include = "ShortAlias，CrowdfundingPlan，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate")]
     public class CrowdfundingPlanModels
     {
         [Required]
