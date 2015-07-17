@@ -15,14 +15,17 @@ namespace ViewPages.Models
         public string ShortAlias { get; set; }
 
         [Required]
+        [StringLength(500, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 4)]
         [Display(Name = "众筹方案")]
         public string CrowdfundingPlan { get; set; }
 
         [Required]
+        [RegularExpression(@"^[0-9]*$",ErrorMessage ="必须是数字")]
         [Display(Name = "筹资金额")]
         public string CrowdfundingAmount { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "比例必须大于0小于100的数字")]
+        [Range(0, 100)]
         [Display(Name = "股份比例")]
         public string Percentage { get; set; }
 
