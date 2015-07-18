@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -16,9 +17,9 @@ using CrowdfundingSolution.BLLObject;
 
 namespace ViewPages.Controllers
 {
-    public class CrowdDetailsControllers : BaseController
+    public class CrowdDetailsController : BaseController
     {
-        public CrowdDetailsControllers()
+        public CrowdDetailsController()
         {
 
         }
@@ -31,19 +32,21 @@ namespace ViewPages.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DetailsAdd(FormCollection coll)//，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate
+        public async Task<ActionResult> DetailsAdd(FormCollection coll)
         {
+
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data["ShortAlias"] = coll["ShortAlias"];
-            data["CrowdfundingPlan"] = coll["CrowdfundingPlan"];
+
+            data["ProjectDetail"] = coll["ProjectDetail"];
+            data["MarketAnalysis"] = coll["MarketAnalysis"];
             data["CrowdfundingAmount"] = coll["CrowdfundingAmount"];
-            data["Percentage"] = coll["Percentage"];
-            data["Prerelease"] = coll["Prerelease"];
-            data["BegingDate"] = coll["BegingDate"];
-            data["EndDate"] = coll["EndDate"];
+            data["RiskControl"] = coll["RiskControl"];
+            data["DevelopmentPlan"] = coll["DevelopmentPlan"];
+            data["CoreCompetition"] = coll["CoreCompetition"];
             ICrowdfundingPlan plan = new CrowdfundingPlan();
             plan.Add(data);
             return View();
         }
+
     }
 }

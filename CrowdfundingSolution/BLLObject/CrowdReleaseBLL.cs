@@ -14,11 +14,11 @@ namespace CrowdfundingSolution.BLLObject
             {
                 var bs = new DAO.Basic();
                 bs.ID = Guid.NewGuid().ToString();
-                bs.ProjectName = data["ShortAlias"];
-                bs.Synopsis = data["CrowdfundingPlan"];
-                bs.IndustryID = data["CrowdfundingAmount"];
-                bs.AreaID = data["Percentage"];
-
+                bs.ProjectName = data["ProjectName"];
+                bs.Synopsis = data["Synopsis"];
+                bs.IndustryID = data["Industry"];
+                bs.AreaID = data["province"];
+                bs.SubmitDate = DateTime.Now.ToString("yyyy-MM-dd");
                 entity.Basic.Add(bs);
                 entity.SaveChanges();
             }
