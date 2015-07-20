@@ -1,4 +1,5 @@
 ﻿@model ViewPages.Models.CrowdReleaseModels
+
 //CrowdRelease/ReleaseAdd
 @{
     ViewBag.Title = "项目发布";
@@ -28,11 +29,14 @@
     function selIn(obj)
     {
         var txt = obj.options[obj.options.selectedIndex].value;
-        hi_province.value = txt;
+        var e = document.getElementById('hi_province');
+        e.value = txt;
     }
     function sel(obj) {
         var txt = obj.options[obj.options.selectedIndex].value;
-        in_Industry.value = txt;
+        var a = document.getElementById('in_Industry');
+        a.value = txt;
+        //in_Industry.value = txt;
     }
     function GetJsonData() {
         var json = {

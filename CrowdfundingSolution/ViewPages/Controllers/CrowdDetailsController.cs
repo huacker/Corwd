@@ -14,19 +14,30 @@ using ViewPages.Models;
 using CrowdfundingSolution.Base;
 using CrowdfundingSolution.BLLInterface;
 using CrowdfundingSolution.BLLObject;
+using DAO;
+using System.Data.Entity;
 
 namespace ViewPages.Controllers
 {
     public class CrowdDetailsController : BaseController
     {
+        CrowdfundingSolutionEntities db = new CrowdfundingSolutionEntities();
         public CrowdDetailsController()
         {
 
         }
 
-        public ViewResult DetailsAdd()
+        public ViewResult DetailsAdd(string id="0")
         {
-            return View();
+            id = "329d4bf6-8240-487b-96bd-f54f88cb28d8";
+            var aa=db.Basic.Find(id) ;
+             
+            //if (movie == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            return View(aa);
+
         }
 
         [HttpPost]
@@ -36,17 +47,17 @@ namespace ViewPages.Controllers
         {
 
             Dictionary<string, string> data = new Dictionary<string, string>();
-
             data["ProjectDetail"] = coll["ProjectDetail"];
             data["MarketAnalysis"] = coll["MarketAnalysis"];
             data["CrowdfundingAmount"] = coll["CrowdfundingAmount"];
             data["RiskControl"] = coll["RiskControl"];
             data["DevelopmentPlan"] = coll["DevelopmentPlan"];
             data["CoreCompetition"] = coll["CoreCompetition"];
-            ICrowdfundingPlan plan = new CrowdfundingPlan();
-            plan.Add(data);
+            ICrowdDetails plan = new CrowdDetailsBLL();
+            plan.DetailsAdd(data);
             return View();
         }
+
 
     }
 }
