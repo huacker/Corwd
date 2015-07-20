@@ -6,5 +6,6 @@ namespace CrowdfundingSolution.BLLInterface
     public interface ICrowdfundingPlan
     {
         void Add(Dictionary<string,string> data);
+        void GetProjectList();
     }
 }
