@@ -172,8 +172,9 @@
     <Compile Include="Content\ueditor\net\App_Code\PathFormater.cs" />
     <Compile Include="Content\ueditor\net\App_Code\UploadHandler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CrowdfundingPlanController.cs" />
+    <Compile Include="Controllers\CrowdReleaseController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,7 +184,7 @@
     <Compile Include="Models\CrowdfundingPlanModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Release.cs" />
+    <Compile Include="Models\CrowdReleaseModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -476,6 +477,8 @@
     <Content Include="Content\ueditor\third-party\video-js\font\vjs.woff" />
     <Content Include="Content\ueditor\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CityList.js" />
+    <Content Include="Scripts\IndustryList.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -523,10 +526,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CrowdfundingPlan\Add.cshtml" />
-    <Content Include="Views\Admin\ProjectList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -547,6 +550,10 @@
     <ProjectReference Include="..\BLLObject\BLLObject.csproj">
       <Project>{efb8767e-7b98-4e09-a979-0f69f6e6e2dd}</Project>
       <Name>BLLObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{1de25e27-2959-4d8f-9f74-87ec966b7f5f}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

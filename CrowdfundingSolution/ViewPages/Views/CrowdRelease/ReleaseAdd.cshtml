@@ -1,0 +1,117 @@
+﻿@model ViewPages.Models.CrowdReleaseModels
+//CrowdRelease/ReleaseAdd
+@{
+    ViewBag.Title = "项目发布";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>项目发布</h2>
+<script type="text/javascript" src="@Url.Content("~/Scripts/CityList.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/IndustryList.js")"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        Industry();
+        province();
+    }
+    function Industry() {
+        var e = document.getElementById('Industry');
+        for (var i = 0; i < IndustryName.length; i++)
+            e.options.add(new Option(IndustryName[i], IndustryName[i]));
+    }
+
+    function province() {
+        var e = document.getElementById('province');
+        for (var i = 0; i < provinceName.length; i++)
+            e.options.add(new Option(provinceName[i], provinceName[i]));
+    }
+
+    function selIn(obj)
+    {
+        var txt = obj.options[obj.options.selectedIndex].value;
+        hi_province.value = txt;
+    }
+    function sel(obj) {
+        var txt = obj.options[obj.options.selectedIndex].value;
+        in_Industry.value = txt;
+    }
+    function GetJsonData() {
+        var json = {
+            "ProjectName": $("#ProjectName").val(),
+            "Synopsis":$("#Synopsis").val(),
+            "Industry": $("#in_Industry").val(),
+            "province": $("#hi_province").val()
+        };
+        return json;
+    }
+    function butNext() {
+        //alert("aa");
+        $.ajax({
+            type: "POST",
+            url: "/CrowdRelease/ReleaseAdd",
+            data: GetJsonData(),
+            dataType: "json",
+            success: function (message) {
+                if (message > 0) {
+                    alert("请求已提交！我们会尽快与您取得联系");
+                    //window.location = "ReleaseAdd.cshtml";
+                }
+            },
+            error: function (message) {
+               // $("#request-process-patent").html("提交数据失败！");
+            }
+        });
+    }
+</script>
+
+@using (Html.BeginForm("ReleaseAdd", "CrowdRelease", FormMethod.Get, new { name = "nbform", id = "nbform" }))
+{
+    @Html.ValidationSummary(true)
+    <input type="hidden" id="in_Industry" />
+    <input type="hidden" id="hi_province" />
+    <fieldset>
+        <legend></legend>
+        <div>
+            项目名称:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.ProjectName)
+            @Html.ValidationMessageFor(model => model.ProjectName)
+        </div>
+        <div>
+            项目简介:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Synopsis)
+            @Html.ValidationMessageFor(model => model.Synopsis)
+        </div>
+        <div>
+            选择行业:
+        </div>
+
+        <div>
+            <select id="Industry" onchange="selIn(this)">
+                <option value="">请选择行业</option>
+            </select>
+            @* @Html.DropDownListFor(model => model.PROVINCEID, Kzrcw2013.Models.ProvinceViewModel.GetProvinceSelectList())
+                @Html.DropDownList("IndustryID", String.Empty)
+                @Html.EditorFor(model=>model.IndustryID)
+                @Html.ValidationMessageFor(model => model.IndustryID)*@
+        </div>
+        <div>
+            选择地区:
+        </div>
+        <div id="Pro">
+            <select id="province" onchange="sel(this)">
+                <option value="">请选择地区</option>
+
+            </select>
+            @*@Html.DropDownList("AreaID",String.Empty)
+                @Html.EditorFor(model => model.AreaID)
+                @Html.ValidationMessageFor(model => model.AreaID)*@
+        </div>
+        <p>
+            <input type="button" value="取消" />
+            <input type="submit" value="下一步" class="buttons" id="btnSend" name="btnSend" onclick="butNext()" />
+        </p>
+    </fieldset>
+}

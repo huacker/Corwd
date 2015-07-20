@@ -1,0 +1,67 @@
+﻿@using ViewPages.Models
+@model CrowdDetailsModels
+@{
+    ViewBag.Title = "项目详情";
+}
+<div class="row">
+    <div class="col-md-8">
+        <section id="ContentForm">
+            @using (Html.BeginForm("DetailsAdd", "CrowdRelease", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>项目详情</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ProjectDetail, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ProjectDetail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ProjectDetail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MarketAnalysis, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.MarketAnalysis, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MarketAnalysis, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            <div class="form-group">
+                    @Html.LabelFor(m => m.EarningsForecast, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.EarningsForecast, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.EarningsForecast, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            <div class="form-group">
+                    @Html.LabelFor(m => m.RiskControl, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.RiskControl, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.RiskControl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            <div class="form-group">
+                    @Html.LabelFor(m => m.DevelopmentPlan, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.DevelopmentPlan, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.DevelopmentPlan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            <div class="form-group">
+                    @Html.LabelFor(m => m.CoreCompetition, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CoreCompetition, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CoreCompetition, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="取消"/>
+                        <input type="submit" value="下一步" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+}
