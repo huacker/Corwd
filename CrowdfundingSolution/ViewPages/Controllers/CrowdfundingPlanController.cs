@@ -32,6 +32,31 @@ namespace ViewPages.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 修改众筹计划
+        /// </summary>
+        /// <param name="ID">唯一标识</param>
+        /// <returns></returns>
+        public ViewResult Update(string ID)
+        {
+            ID = "5df5c20d-d27a-4d53-92f2-554a00869d9f";
+            ICrowdfundingPlan plan = new CrowdfundingPlan();
+            CrowdfundingPlanModels modelst = new CrowdfundingPlanModels();
+
+            List<DAO.CrowdfundingPlan> planlst = plan.GetCrowdPlanByID(ID);
+            if (planlst.Count > 0 )
+            {
+                modelst.BegingDate = planlst[0].BegingDate;
+                modelst.CrowdfundingAmount = planlst[0].CrowdfundingAmount;
+                modelst.CrowdfundingPlan = planlst[0].CrowdfundingPlan1;
+                modelst.Percentage = planlst[0].Percentage;
+                modelst.Prerelease = planlst[0].Prerelease;
+                modelst.ShortAlias = planlst[0].ShortAlias;
+            }
+            
+            return View(modelst);
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]

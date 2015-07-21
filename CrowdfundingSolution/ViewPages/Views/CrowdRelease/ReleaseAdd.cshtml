@@ -76,6 +76,9 @@
         <div>
             @Html.EditorFor(model => model.ProjectName)
             @Html.ValidationMessageFor(model => model.ProjectName)
+            
+            @Html.EditorFor(m => m.ProjectName)
+            @Html.ValidationMessageFor(model => model.ProjectName)
         </div>
         <div>
             项目简介:

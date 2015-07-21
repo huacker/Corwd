@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using CrowdfundingSolution.BLLInterface;
 using System;
+using System.Linq;
 
 namespace CrowdfundingSolution.BLLObject
 {
@@ -23,6 +24,16 @@ namespace CrowdfundingSolution.BLLObject
                 plan.SubmitDate = DateTime.Now.ToString("yyyy-MM-dd");
                 entity.CrowdfundingPlan.Add(plan);
                 entity.SaveChanges();
+            }
+        }
+
+        public List<DAO.CrowdfundingPlan> GetCrowdPlanByID(string ID)
+        {
+            using (var entity = new DAO.CrowdfundingSolutionEntities())
+            {
+                List<DAO.CrowdfundingPlan> crowdPlanlst = new List<DAO.CrowdfundingPlan>();
+                crowdPlanlst = entity.CrowdfundingPlan.Where(c => c.ID == ID).ToList();
+                return crowdPlanlst;
             }
         }
     }
