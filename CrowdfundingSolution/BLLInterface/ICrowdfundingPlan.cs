@@ -8,5 +8,6 @@ namespace CrowdfundingSolution.BLLInterface
         void Add(Dictionary<string,string> data);
         void GetProjectList();
         List<DAO.CrowdfundingPlan> GetCrowdPlanByID(string ID);
+        void Update(string ID, Dictionary<string, string> data);
     }
 }
