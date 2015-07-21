@@ -172,7 +172,6 @@
     <Compile Include="Content\ueditor\net\App_Code\PathFormater.cs" />
     <Compile Include="Content\ueditor\net\App_Code\UploadHandler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CrowdDetailsController.cs" />
     <Compile Include="Controllers\CrowdfundingPlanController.cs" />
     <Compile Include="Controllers\CrowdReleaseController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -527,8 +526,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CrowdfundingPlan\Add.cshtml" />
-    <Content Include="Views\CrowdRelease\ReleaseAdd.cshtml" />
-    <Content Include="Views\CrowdDetails\DetailsAdd.cshtml" />
     <Content Include="Views\CrowdfundingPlan\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>

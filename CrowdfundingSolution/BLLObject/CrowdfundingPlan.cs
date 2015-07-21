@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using CrowdfundingSolution.BLLInterface;
 using System;
+using System.Threading.Tasks;
 using System.Linq;
 
 namespace CrowdfundingSolution.BLLObject
@@ -25,6 +26,22 @@ namespace CrowdfundingSolution.BLLObject
                 entity.CrowdfundingPlan.Add(plan);
                 entity.SaveChanges();
             }
+        }
+
+        public async void GetProjectList()//
+        {
+            List<DAO.CrowdfundingPlan> result = new List<DAO.CrowdfundingPlan>();
+            using ( var entity=new DAO.CrowdfundingSolutionEntities())
+            {
+                //var prjectList = await (from p in entity.CrowdfundingPlan orderby p.SubmitDate select p);
+                var prjectList = await entity.CrowdfundingPlan.ToListAsync();
+
+                foreach (var p in prjectList)
+                {
+                    result.Add(p);
+                }
+            }
+            //return result;
         }
 
         public List<DAO.CrowdfundingPlan> GetCrowdPlanByID(string ID)
