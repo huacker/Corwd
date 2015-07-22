@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CrowdfundingSolution.BLLInterface
 {
-    public interface ICrowdDetails
+    public interface ICrowdContact
     {
-        void DetailsAdd(Dictionary<string, string>data);
-        //List<DAO.> GetCrowdPlanByID(string ID);
+        void ContactAdd(Dictionary<string, string> data);
     }
 }

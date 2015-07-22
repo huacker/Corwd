@@ -14,7 +14,7 @@ namespace CrowdfundingSolution.BLLObject
             {
                 var bs = new DAO.Detailed();
                 bs.ID = Guid.NewGuid().ToString();
-                //bs.BasicID=
+                bs.BasicID = data["BasicID"];
                 bs.ProjectDetail = data["ProjectDetail"];
                 bs.MarketAnalysis = data["MarketAnalysis"];
                 bs.EarningsForecast = data["EarningsForecast"];

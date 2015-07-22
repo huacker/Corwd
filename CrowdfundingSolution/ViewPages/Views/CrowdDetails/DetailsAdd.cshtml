@@ -1,15 +1,15 @@
 ﻿@using ViewPages.Models
 @model CrowdDetailsModels
-@*@model*@ 
+
 @{
     ViewBag.Title = "项目详情";
 }
 <div class="row">
     <div class="col-md-8">
         <section id="ContentForm">
-            @using (Html.BeginForm("DetailsAdd", "CrowdRelease", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("DetailsAdd", "CrowdDetails", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-
+               
                 @Html.AntiForgeryToken()
                 <h4>项目详情</h4>
                 <hr />
@@ -17,8 +17,9 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.BasicID, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.BasicID, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.BasicID, "", new { @class = "text-danger" })
+                        <input type="text"value="@ViewBag.ProjectName" class = "form-control">
+                        <input id="BasicID" name="BasicID" type="hidden" value="@ViewBag.ID" />
+                        @*<input type="hidden" id="BasicID" value="@ViewBag.ID" class = "form-control"/>*@
                     </div>
                 </div>
 

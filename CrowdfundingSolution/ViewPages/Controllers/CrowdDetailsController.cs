@@ -21,35 +21,34 @@ namespace ViewPages.Controllers
 {
     public class CrowdDetailsController : BaseController
     {
+    
+       
         CrowdfundingSolutionEntities db = new CrowdfundingSolutionEntities();
         public CrowdDetailsController()
         {
 
         }
 
-        public ViewResult DetailsAdd(string id="0")
+        public ViewResult DetailsAdd(string id)
         {
             id = "329d4bf6-8240-487b-96bd-f54f88cb28d8";
-            var aa=db.Basic.Find(id) ;
-             
-            //if (movie == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            return View(aa);
+
+            ViewBag.ProjectName = db.Basic.Find(id).ProjectName;
+            ViewBag.ID = db.Basic.Find(id).ID;
+            return View();
 
         }
 
         [HttpPost]
-        [ValidateInput(false)]
-        [ValidateAntiForgeryToken]
+
         public async Task<ActionResult> DetailsAdd(FormCollection coll)
         {
 
             Dictionary<string, string> data = new Dictionary<string, string>();
+            data["BasicID"] = coll["BasicID"];            
             data["ProjectDetail"] = coll["ProjectDetail"];
             data["MarketAnalysis"] = coll["MarketAnalysis"];
-            data["CrowdfundingAmount"] = coll["CrowdfundingAmount"];
+            data["EarningsForecast"] = coll["EarningsForecast"];
             data["RiskControl"] = coll["RiskControl"];
             data["DevelopmentPlan"] = coll["DevelopmentPlan"];
             data["CoreCompetition"] = coll["CoreCompetition"];
