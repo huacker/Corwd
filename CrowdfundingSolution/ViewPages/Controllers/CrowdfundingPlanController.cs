@@ -38,23 +38,26 @@ namespace ViewPages.Controllers
         /// <param name="ID">唯一标识</param>
         /// <returns></returns>
         public ViewResult Update(string ID)
+
         {
             ID = "5df5c20d-d27a-4d53-92f2-554a00869d9f";
             ICrowdfundingPlan plan = new CrowdfundingPlan();
-            CrowdfundingPlanModels modelst = new CrowdfundingPlanModels();
+            CrowdfundingPlanModels mode = new CrowdfundingPlanModels();
 
             List<DAO.CrowdfundingPlan> planlst = plan.GetCrowdPlanByID(ID);
             if (planlst.Count > 0 )
             {
-                modelst.BegingDate = planlst[0].BegingDate;
-                modelst.CrowdfundingAmount = planlst[0].CrowdfundingAmount;
-                modelst.CrowdfundingPlan = planlst[0].CrowdfundingPlan1;
-                modelst.Percentage = planlst[0].Percentage;
-                modelst.Prerelease = planlst[0].Prerelease;
-                modelst.ShortAlias = planlst[0].ShortAlias;
+                mode.BegingDate = planlst[0].BegingDate.Trim();
+                mode.CrowdfundingAmount = planlst[0].CrowdfundingAmount.Trim();
+                mode.CrowdfundingPlan = planlst[0].CrowdfundingPlan1.Trim();
+                mode.Percentage = planlst[0].Percentage.Trim();
+                mode.Prerelease = planlst[0].Prerelease.Trim();
+                mode.ShortAlias = planlst[0].ShortAlias.Trim();
+                mode.EndDate = planlst[0].EndDate.Trim();
             }
+            mode.ID = ID;
             
-            return View(modelst);
+            return View(mode);
         }
 
         [HttpPost]
@@ -86,6 +89,25 @@ namespace ViewPages.Controllers
 
             ICrowdfundingPlan plan = new CrowdfundingPlan();
             plan.Add(data);
+            return View();//post
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update([Bind(Include = "ID,ShortAlias,CrowdfundingPlan,CrowdfundingAmount,Percentage,Prerelease,BegingDate,EndDate")] CrowdfundingPlanModels crowdPlan,string ID)
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data["ShortAlias"] = crowdPlan.ShortAlias;
+            data["CrowdfundingPlan"] = crowdPlan.CrowdfundingPlan;
+            data["CrowdfundingAmount"] = crowdPlan.CrowdfundingAmount;
+            data["Percentage"] = crowdPlan.Percentage;
+            data["Prerelease"] = crowdPlan.Prerelease;
+            data["BegingDate"] = crowdPlan.BegingDate;
+            data["EndDate"] = crowdPlan.EndDate;
+
+            ICrowdfundingPlan plan = new CrowdfundingPlan();
+            plan.Update(crowdPlan.ID, data);
             return View();//post
         }
     }

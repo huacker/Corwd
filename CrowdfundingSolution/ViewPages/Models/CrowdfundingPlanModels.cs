@@ -9,6 +9,7 @@ namespace ViewPages.Models
     //[Bind(Include = "ShortAlias，CrowdfundingPlan，CrowdfundingAmount，Percentage，Prerelease，BegingDate,EndDate")]
     public class CrowdfundingPlanModels
     {
+        public string ID { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 4)]
         [Display(Name = "项目简称")]

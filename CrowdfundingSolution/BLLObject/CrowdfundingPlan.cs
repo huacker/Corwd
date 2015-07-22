@@ -4,10 +4,11 @@ using CrowdfundingSolution.BLLInterface;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Data.Entity.Infrastructure;
 
 namespace CrowdfundingSolution.BLLObject
 {
-    public class CrowdfundingPlan:ICrowdfundingPlan
+    public class CrowdfundingPlan : ICrowdfundingPlan
     {
         public void Add(Dictionary<string, string> data)
         {
@@ -31,7 +32,7 @@ namespace CrowdfundingSolution.BLLObject
         public async void GetProjectList()//
         {
             List<DAO.CrowdfundingPlan> result = new List<DAO.CrowdfundingPlan>();
-            using ( var entity=new DAO.CrowdfundingSolutionEntities())
+            using (var entity = new DAO.CrowdfundingSolutionEntities())
             {
                 //var prjectList = await (from p in entity.CrowdfundingPlan orderby p.SubmitDate select p);
                 var prjectList = await entity.CrowdfundingPlan.ToListAsync();
@@ -51,6 +52,23 @@ namespace CrowdfundingSolution.BLLObject
                 List<DAO.CrowdfundingPlan> crowdPlanlst = new List<DAO.CrowdfundingPlan>();
                 crowdPlanlst = entity.CrowdfundingPlan.Where(c => c.ID == ID).ToList();
                 return crowdPlanlst;
+            }
+        }
+
+        public void Update(string ID, Dictionary<string, string> data)
+        {
+            using (var entity = new DAO.CrowdfundingSolutionEntities())
+            {
+                DAO.CrowdfundingPlan modeNew = entity.CrowdfundingPlan.Where(c => c.ID == ID).FirstOrDefault();
+                modeNew.ShortAlias = data["ShortAlias"];
+                modeNew.CrowdfundingPlan1 = data["CrowdfundingPlan"];
+                modeNew.CrowdfundingAmount = data["CrowdfundingAmount"];
+                modeNew.Percentage = data["Percentage"];
+                modeNew.Prerelease = data["Prerelease"];
+                modeNew.BegingDate = data["BegingDate"];
+                modeNew.EndDate = data["EndDate"];
+                modeNew.SubmitDate = DateTime.Now.ToString("yyyy-MM-dd");
+                entity.SaveChanges();
             }
         }
     }
