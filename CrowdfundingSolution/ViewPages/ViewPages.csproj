@@ -175,6 +175,7 @@
     <Compile Include="Controllers\CrowdContactController.cs" />
     <Compile Include="Controllers\CrowdDetailsController.cs" />
     <Compile Include="Controllers\CrowdfundingPlanController.cs" />
+    <Compile Include="Controllers\CrowdProjectListController.cs" />
     <Compile Include="Controllers\CrowdReleaseController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -183,9 +184,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CrowdBasicInformationModels.cs" />
     <Compile Include="Models\CrowdContactModels.cs" />
     <Compile Include="Models\CrowdDetailsModels.cs" />
     <Compile Include="Models\CrowdfundingPlanModels.cs" />
+    <Compile Include="Models\CrowdProjectListModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CrowdReleaseModels.cs" />
@@ -483,6 +486,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CityList.js" />
     <Content Include="Scripts\IndustryList.js" />
+    <Content Include="Scripts\Information.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -534,6 +538,8 @@
     <Content Include="Views\CrowdRelease\ReleaseAdd.cshtml" />
     <Content Include="Views\CrowdDetails\DetailsAdd.cshtml" />
     <Content Include="Views\CrowdContact\ContactAdd.cshtml" />
+    <Content Include="Views\CrowdRelease\BasicInformationAdd.cshtml" />
+    <Content Include="Views\CrowdProjectList\CrowdProjectListQuery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

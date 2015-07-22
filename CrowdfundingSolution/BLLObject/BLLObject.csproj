@@ -52,6 +52,7 @@
     <Compile Include="CrowdContactBLL.cs" />
     <Compile Include="CrowdDetailsBLL.cs" />
     <Compile Include="CrowdfundingPlan.cs" />
+    <Compile Include="CrowdProjectListBLL.cs" />
     <Compile Include="CrowdReleaseBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

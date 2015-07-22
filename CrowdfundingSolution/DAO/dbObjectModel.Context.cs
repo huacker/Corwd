@@ -27,10 +27,10 @@ namespace DAO
     
         public DbSet<Album> Album { get; set; }
         public DbSet<Attachment> Attachment { get; set; }
-        public DbSet<Basic> Basic { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<CrowdfundingPlan> CrowdfundingPlan { get; set; }
         public DbSet<Detailed> Detailed { get; set; }
         public DbSet<ProjectManage> ProjectManage { get; set; }
+        public DbSet<Basic> Basic { get; set; }
     }
 }

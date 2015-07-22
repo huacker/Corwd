@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CrowdfundingSolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CrowdfundingSolutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="ID" />
@@ -40,7 +40,7 @@
           <Property Name="FoundingTime" Type="nchar" MaxLength="10" />
           <Property Name="Tags" Type="nvarchar" MaxLength="50" />
           <Property Name="Stage" Type="nchar" MaxLength="10" />
-          <Property Name="IsHaveOther" Type="nchar" MaxLength="1" />
+          <Property Name="IsHaveOther" Type="char" MaxLength="10" />
           <Property Name="CompanyName" Type="nchar" MaxLength="10" />
           <Property Name="CompanyAddress" Type="nvarchar" MaxLength="100" />
           <Property Name="ShareholderCount" Type="nvarchar" MaxLength="50" />
@@ -88,16 +88,6 @@
           <Property Name="CoreCompetition" Type="nvarchar" MaxLength="500" />
           <Property Name="SubmitDate" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“CrowdfundingSolution.dbo.Funding”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="Funding">
-          <Property Name="UserID" Type="nvarchar" MaxLength="50" />
-          <Property Name="PorjectManageID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="nchar" MaxLength="10" />
-          <Property Name="IsLeader" Type="nchar" MaxLength="1" />
-          <Property Name="SubmitDate" Type="nchar" MaxLength="10" />
-          <Property Name="Message" Type="nvarchar" MaxLength="500" />
-        </EntityType>-->
         <EntityType Name="ProjectManage">
           <Key>
             <PropertyRef Name="ID" />
@@ -117,8 +107,7 @@
           <EntitySet Name="Detailed" EntityType="Self.Detailed" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectManage" EntityType="Self.ProjectManage" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CrowdfundingSolutionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -139,31 +128,6 @@
           <Property Name="BasicID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AttName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="urlPath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Basic">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Synopsis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IndustryID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="AreaID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Highlight" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Promoter" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BusinessProgress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BaseCity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="FoundingTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Tags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Stage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="IsHaveOther" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="CompanyName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CompanyAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ShareholderCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeesCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProjectDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="SubmitDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -218,12 +182,37 @@
         <EntityContainer Name="CrowdfundingSolutionEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Album" EntityType="Self.Album" />
           <EntitySet Name="Attachment" EntityType="Self.Attachment" />
-          <EntitySet Name="Basic" EntityType="Self.Basic" />
           <EntitySet Name="Contact" EntityType="Self.Contact" />
           <EntitySet Name="CrowdfundingPlan" EntityType="Self.CrowdfundingPlan" />
           <EntitySet Name="Detailed" EntityType="Self.Detailed" />
           <EntitySet Name="ProjectManage" EntityType="Self.ProjectManage" />
+          <EntitySet Name="Basic" EntityType="CrowdfundingSolutionModel.Basic" />
         </EntityContainer>
+        <EntityType Name="Basic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Synopsis" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IndustryID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AreaID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Highlight" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Promoter" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessProgress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BaseCity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FoundingTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsHaveOther" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShareholderCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeesCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SubmitDate" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -247,32 +236,6 @@
                 <ScalarProperty Name="BasicID" ColumnName="BasicID" />
                 <ScalarProperty Name="AttName" ColumnName="AttName" />
                 <ScalarProperty Name="urlPath" ColumnName="urlPath" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Basic">
-            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Basic">
-              <MappingFragment StoreEntitySet="Basic">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
-                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
-                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
-                <ScalarProperty Name="Highlight" ColumnName="Highlight" />
-                <ScalarProperty Name="Promoter" ColumnName="Promoter" />
-                <ScalarProperty Name="Website" ColumnName="Website" />
-                <ScalarProperty Name="BusinessProgress" ColumnName="BusinessProgress" />
-                <ScalarProperty Name="BaseCity" ColumnName="BaseCity" />
-                <ScalarProperty Name="FoundingTime" ColumnName="FoundingTime" />
-                <ScalarProperty Name="Tags" ColumnName="Tags" />
-                <ScalarProperty Name="Stage" ColumnName="Stage" />
-                <ScalarProperty Name="IsHaveOther" ColumnName="IsHaveOther" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
-                <ScalarProperty Name="ShareholderCount" ColumnName="ShareholderCount" />
-                <ScalarProperty Name="EmployeesCount" ColumnName="EmployeesCount" />
-                <ScalarProperty Name="ProjectDate" ColumnName="ProjectDate" />
-                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -327,6 +290,32 @@
                 <ScalarProperty Name="PlanID" ColumnName="PlanID" />
                 <ScalarProperty Name="StautsID" ColumnName="StautsID" />
                 <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Basic">
+            <EntityTypeMapping TypeName="CrowdfundingSolutionModel.Basic">
+              <MappingFragment StoreEntitySet="Basic">
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ProjectDate" ColumnName="ProjectDate" />
+                <ScalarProperty Name="EmployeesCount" ColumnName="EmployeesCount" />
+                <ScalarProperty Name="ShareholderCount" ColumnName="ShareholderCount" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="IsHaveOther" ColumnName="IsHaveOther" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="FoundingTime" ColumnName="FoundingTime" />
+                <ScalarProperty Name="BaseCity" ColumnName="BaseCity" />
+                <ScalarProperty Name="BusinessProgress" ColumnName="BusinessProgress" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Promoter" ColumnName="Promoter" />
+                <ScalarProperty Name="Highlight" ColumnName="Highlight" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

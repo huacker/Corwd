@@ -1,0 +1,150 @@
+﻿@using ViewPages.Models
+@model CrowdBasicInformationModels
+@{
+    ViewBag.Title = "项目基本信息";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/Information.js")"></script>
+
+@*@{bool otherProject = false; }
+@if (Model.IsHaveOther == "是") {
+    otherProject = true;
+}*@
+@*<p>
+    有只：@Model.IsHaveOther
+</p>*@
+<div class="row">
+    <div class="col-md-8">
+        <section id="ContentForm">
+            @using (Html.BeginForm("BasicInformationAdd", "CrowdRelease", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+
+                @Html.AntiForgeryToken()
+                <h4>项目基本信息</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <input type="text" value="@ViewBag.ProjectName" class="form-control">
+                        <input id="ID" name="ID" type="hidden" value="@ViewBag.ID" />
+                        <input type="hidden" id="ID" value="@ViewBag.ID" class = "form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Highlight, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Highlight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Highlight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Promoter, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Promoter, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Promoter, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Website, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Website, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Website, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BusinessProgress, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.BusinessProgress, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.BusinessProgress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BaseCity, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.BaseCity, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.BaseCity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FoundingTime, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FoundingTime, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FoundingTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Tags, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Tags, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Tags, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CompanyName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CompanyAddress, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CompanyAddress, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Tags, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ShareholderCount, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ShareholderCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ShareholderCount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.EmployeesCount, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.EmployeesCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.EmployeesCount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ProjectDate, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ProjectDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ProjectDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsHaveOther, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @*<input data-val="true" data-val-required="IsHaveOther 是" id="IsHaveOther" name="IsHaveOther" type="checkbox" value="true" />是*@
+                        <input type="checkbox" id="IsHaveOther" name="IsHaveOther" value="true">
+                        <input name="IsHaveOther" type="hidden" value="false" />
+                        @*@Html.CheckBoxFor(m => m.IsHaveOther)是
+                         @Html.ValidationMessageFor(m => m.IsHaveOther, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Stage, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <select id="Stage" name="Stage">
+                            <option value="">请选择阶段</option>
+                            <option>筹备阶段</option>
+                            <option>已有产品</option>
+                            <option>已有盈利</option>
+                            <option>已有融资</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="取消" />
+                        <input type="submit" value="下一步" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+

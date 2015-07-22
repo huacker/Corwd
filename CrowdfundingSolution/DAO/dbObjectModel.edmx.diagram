@@ -7,11 +7,11 @@
       <Diagram DiagramId="750ff9173d9e491d80fa6819d276bf26" Name="Diagram1">
         <EntityTypeShape EntityType="CrowdfundingSolutionModel.Album" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingSolutionModel.Attachment" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CrowdfundingSolutionModel.Basic" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingSolutionModel.Contact" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingSolutionModel.CrowdfundingPlan" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingSolutionModel.Detailed" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingSolutionModel.ProjectManage" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingSolutionModel.Basic" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -43,6 +43,7 @@
     <Compile Include="ICrowdContact.cs" />
     <Compile Include="ICrowdDetails.cs" />
     <Compile Include="ICrowdfundingPlan.cs" />
+    <Compile Include="ICrowdProjectList.cs" />
     <Compile Include="ICrowdRelease.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

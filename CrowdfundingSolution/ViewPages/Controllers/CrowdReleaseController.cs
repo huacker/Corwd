@@ -28,6 +28,15 @@ namespace ViewPages.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ViewResult BasicInformationAdd(string id)
+        {
+            id = "329d4bf6-8240-487b-96bd-f54f88cb28d8";
+            var bif = db.Basic.Find(id);
+            ViewBag.ProjectName = bif.ProjectName;
+            ViewBag.ID = bif.ID;
+            return View(bif);
+        }
         [HttpPost]
         public ActionResult ReleaseAdd(string ProjectName, string Synopsis, string Industry, string province)
         {
@@ -55,6 +64,30 @@ namespace ViewPages.Controllers
             //}
             //return View();
         }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult BasicInformationAdd([Bind(Include = "ID,Highlight,Promoter,Website,BusinessProgress,BaseCity,FoundingTime,Tags,Stage,IsHaveOther,CompanyName,CompanyAddress,ShareholderCount,EmployeesCount,ProjectDate")]CrowdBasicInformationModels CBIM,string ID)
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data["Highlight"] = CBIM.Highlight;
+            data["Promoter"] = CBIM.Promoter;
+            data["Website"] = CBIM.Website;
 
+            data["BusinessProgress"] = CBIM.BusinessProgress;
+            data["BaseCity"] = CBIM.BaseCity;
+            data["FoundingTime"] = CBIM.FoundingTime;
+            data["Tags"] = CBIM.Tags;
+            data["Stage"] = CBIM.Stage;
+            data["IsHaveOther"] = CBIM.IsHaveOther;
+            data["CompanyName"] = CBIM.CompanyName;
+            data["CompanyAddress"] = CBIM.CompanyAddress;
+            data["ShareholderCount"] = CBIM.ShareholderCount;
+            data["EmployeesCount"] = CBIM.EmployeesCount;
+            data["ProjectDate"] = CBIM.ProjectDate;
+            ICrowdRelease plan = new CrowdReleaseBLL();
+            plan.BasicInformationAdd(CBIM.ID,data);
+            return View();
+        }
     }
 }
