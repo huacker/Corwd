@@ -19,6 +19,14 @@ namespace MulticluehnSolution.Web.Controllers
         //    return View();
         //}
 
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(CrowdfundingPlanEntityModel model)
         {
             string str = string.Empty;
@@ -26,17 +34,33 @@ namespace MulticluehnSolution.Web.Controllers
             {
                 //IServiceFactory service = MulticluehnSolution.Web.App_Start.WCFClientFactory.ServiceFactory;
                 //service.CreateService().CrowdfundingPlanAdd(model);
-                str = client.TestGetData("习近平");
+                //str = client.TestGetData("习近平");
+                model.ID = Guid.NewGuid().ToString();
+                client.CrowdfundingPlanAdd(SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model));
             }
             return View();
         }
 
         public ActionResult Update(string ID)
         {
-            ID = "5df5c20d-d27a-4d53-92f2-554a00869d9f";
+            ID = "b48f0b40-cc0a-4f28-9bd0-404fa09b21aa";
             string strModel = client.GetCrowdPlanByID(ID);
             CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
 
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(CrowdfundingPlanEntityModel model)
+        {
+            string str = string.Empty;
+            if (ModelState.IsValid)
+            {
+                model.ID = Guid.NewGuid().ToString();
+                client.Update(SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model));
+            }
             return View(model);
         }
     }

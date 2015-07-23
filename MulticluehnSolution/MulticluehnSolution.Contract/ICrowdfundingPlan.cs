@@ -16,6 +16,6 @@ namespace MulticluehnSolution.Contract
         void Update(string Crowdmodel);
 
         [OperationContract(IsOneWay = false)]
-        void CrowdfundingPlanAdd(CrowdfundingPlanEntityModel model);
+        void CrowdfundingPlanAdd(string Crowdmodel);
     }
 }

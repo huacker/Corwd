@@ -535,9 +535,6 @@
     <None Include="Service References\WcfService\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WcfService\Service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\CrowdfundingPlan\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>

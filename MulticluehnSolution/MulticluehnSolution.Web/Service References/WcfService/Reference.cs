@@ -9,182 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace MulticluehnSolution.Web.WcfService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CrowdfundingPlanEntityModel", Namespace="http://schemas.datacontract.org/2004/07/MulticluehnSolution.EntityModel")]
-    [System.SerializableAttribute()]
-    public partial class CrowdfundingPlanEntityModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BegingDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CrowdfundingAmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CrowdfundingPlanField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EndDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PercentageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrereleaseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShortAliasField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SubmitDateField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BegingDate {
-            get {
-                return this.BegingDateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BegingDateField, value) != true)) {
-                    this.BegingDateField = value;
-                    this.RaisePropertyChanged("BegingDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CrowdfundingAmount {
-            get {
-                return this.CrowdfundingAmountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrowdfundingAmountField, value) != true)) {
-                    this.CrowdfundingAmountField = value;
-                    this.RaisePropertyChanged("CrowdfundingAmount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CrowdfundingPlan {
-            get {
-                return this.CrowdfundingPlanField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrowdfundingPlanField, value) != true)) {
-                    this.CrowdfundingPlanField = value;
-                    this.RaisePropertyChanged("CrowdfundingPlan");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EndDate {
-            get {
-                return this.EndDateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EndDateField, value) != true)) {
-                    this.EndDateField = value;
-                    this.RaisePropertyChanged("EndDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IDField, value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Percentage {
-            get {
-                return this.PercentageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PercentageField, value) != true)) {
-                    this.PercentageField = value;
-                    this.RaisePropertyChanged("Percentage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Prerelease {
-            get {
-                return this.PrereleaseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrereleaseField, value) != true)) {
-                    this.PrereleaseField = value;
-                    this.RaisePropertyChanged("Prerelease");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ShortAlias {
-            get {
-                return this.ShortAliasField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShortAliasField, value) != true)) {
-                    this.ShortAliasField = value;
-                    this.RaisePropertyChanged("ShortAlias");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SubmitDate {
-            get {
-                return this.SubmitDateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SubmitDateField, value) != true)) {
-                    this.SubmitDateField = value;
-                    this.RaisePropertyChanged("SubmitDate");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfService.IService")]
@@ -209,10 +34,10 @@ namespace MulticluehnSolution.Web.WcfService {
         System.Threading.Tasks.Task UpdateAsync(string Crowdmodel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAdd", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAddResponse")]
-        void CrowdfundingPlanAdd(MulticluehnSolution.Web.WcfService.CrowdfundingPlanEntityModel model);
+        void CrowdfundingPlanAdd(string Crowdmodel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAdd", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAddResponse")]
-        System.Threading.Tasks.Task CrowdfundingPlanAddAsync(MulticluehnSolution.Web.WcfService.CrowdfundingPlanEntityModel model);
+        System.Threading.Tasks.Task CrowdfundingPlanAddAsync(string Crowdmodel);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -266,12 +91,12 @@ namespace MulticluehnSolution.Web.WcfService {
             return base.Channel.UpdateAsync(Crowdmodel);
         }
         
-        public void CrowdfundingPlanAdd(MulticluehnSolution.Web.WcfService.CrowdfundingPlanEntityModel model) {
-            base.Channel.CrowdfundingPlanAdd(model);
+        public void CrowdfundingPlanAdd(string Crowdmodel) {
+            base.Channel.CrowdfundingPlanAdd(Crowdmodel);
         }
         
-        public System.Threading.Tasks.Task CrowdfundingPlanAddAsync(MulticluehnSolution.Web.WcfService.CrowdfundingPlanEntityModel model) {
-            return base.Channel.CrowdfundingPlanAddAsync(model);
+        public System.Threading.Tasks.Task CrowdfundingPlanAddAsync(string Crowdmodel) {
+            return base.Channel.CrowdfundingPlanAddAsync(Crowdmodel);
         }
     }
 }

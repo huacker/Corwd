@@ -26,15 +26,21 @@ namespace MulticluehnSolution.BLL
             return "Hello Word!" + str;
         }
 
-        public void CrowdfundingPlanAdd(CrowdfundingPlanEntityModel model)
+        public void CrowdfundingPlanAdd(string Crowdmodel)
         {
+            CrowdfundingPlanEntityModel model = new CrowdfundingPlanEntityModel();
+            model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(Crowdmodel);
+            model.SubmitDate = DateTime.Now.ToString("yyyy-MM-dd");
             dao.Insert<CrowdfundingPlanEntityModel>(model);
+
         }
 
         public string GetCrowdPlanByID(string ID)
         {
             CrowdfundingPlanEntityModel model = new CrowdfundingPlanEntityModel();
             model = dao.Find<CrowdfundingPlanEntityModel>(ID);
+
+            List<CrowdfundingPlanEntityModel> lstmodel = dao.FindAll<CrowdfundingPlanEntityModel>();
             return SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model);
         }
 
