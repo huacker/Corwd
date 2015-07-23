@@ -196,6 +196,18 @@ namespace MulticluehnSolution.Web.WcfService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/TestGetData", ReplyAction="http://tempuri.org/ICrowdfundingPlan/TestGetDataResponse")]
         System.Threading.Tasks.Task<string> TestGetDataAsync(string str);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByID", ReplyAction="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByIDResponse")]
+        string GetCrowdPlanByID(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByID", ReplyAction="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByIDResponse")]
+        System.Threading.Tasks.Task<string> GetCrowdPlanByIDAsync(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/Update", ReplyAction="http://tempuri.org/ICrowdfundingPlan/UpdateResponse")]
+        void Update(string Crowdmodel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/Update", ReplyAction="http://tempuri.org/ICrowdfundingPlan/UpdateResponse")]
+        System.Threading.Tasks.Task UpdateAsync(string Crowdmodel);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAdd", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAddResponse")]
         void CrowdfundingPlanAdd(MulticluehnSolution.Web.WcfService.CrowdfundingPlanEntityModel model);
         
@@ -236,6 +248,22 @@ namespace MulticluehnSolution.Web.WcfService {
         
         public System.Threading.Tasks.Task<string> TestGetDataAsync(string str) {
             return base.Channel.TestGetDataAsync(str);
+        }
+        
+        public string GetCrowdPlanByID(string ID) {
+            return base.Channel.GetCrowdPlanByID(ID);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetCrowdPlanByIDAsync(string ID) {
+            return base.Channel.GetCrowdPlanByIDAsync(ID);
+        }
+        
+        public void Update(string Crowdmodel) {
+            base.Channel.Update(Crowdmodel);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAsync(string Crowdmodel) {
+            return base.Channel.UpdateAsync(Crowdmodel);
         }
         
         public void CrowdfundingPlanAdd(MulticluehnSolution.Web.WcfService.CrowdfundingPlanEntityModel model) {

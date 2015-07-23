@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MulticluehnSolution.EntityModel;
 using MulticluehnSolution.Common.Base;
 using MulticluehnSolution.WCFClient;
+using MulticluehnSolution.Common.Utility;
 
 namespace MulticluehnSolution.Web.Controllers
 {
@@ -20,7 +21,7 @@ namespace MulticluehnSolution.Web.Controllers
 
         public ActionResult Add(CrowdfundingPlanEntityModel model)
         {
-            string str = string.Empty ;
+            string str = string.Empty;
             if (ModelState.IsValid)
             {
                 //IServiceFactory service = MulticluehnSolution.Web.App_Start.WCFClientFactory.ServiceFactory;
@@ -28,6 +29,15 @@ namespace MulticluehnSolution.Web.Controllers
                 str = client.TestGetData("习近平");
             }
             return View();
+        }
+
+        public ActionResult Update(string ID)
+        {
+            ID = "5df5c20d-d27a-4d53-92f2-554a00869d9f";
+            string strModel = client.GetCrowdPlanByID(ID);
+            CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
+
+            return View(model);
         }
     }
 }

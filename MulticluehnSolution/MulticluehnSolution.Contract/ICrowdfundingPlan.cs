@@ -10,6 +10,12 @@ namespace MulticluehnSolution.Contract
         string TestGetData(string str);
 
         [OperationContract(IsOneWay = false)]
+        string GetCrowdPlanByID(string ID);
+
+        [OperationContract(IsOneWay = false)]
+        void Update(string Crowdmodel);
+
+        [OperationContract(IsOneWay = false)]
         void CrowdfundingPlanAdd(CrowdfundingPlanEntityModel model);
     }
 }
