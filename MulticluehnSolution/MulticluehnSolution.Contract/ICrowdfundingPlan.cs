@@ -7,6 +7,9 @@ namespace MulticluehnSolution.Contract
     public interface ICrowdfundingPlan
     {
         [OperationContract(IsOneWay = false)]
+        string TestGetData(string str);
+
+        [OperationContract(IsOneWay = false)]
         void CrowdfundingPlanAdd(CrowdfundingPlanEntityModel model);
     }
 }

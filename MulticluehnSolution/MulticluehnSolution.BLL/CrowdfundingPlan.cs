@@ -19,6 +19,12 @@ namespace MulticluehnSolution.BLL
             //Need to inject dynamic later
             this.dao = new MulticluehnSolution.DAL.DAO();
         }
+
+        public string TestGetData(string str)
+        {
+            return "Hello Word!" + str;
+        }
+
         public void CrowdfundingPlanAdd(CrowdfundingPlanEntityModel model)
         {
             dao.Insert<CrowdfundingPlanEntityModel>(model);
