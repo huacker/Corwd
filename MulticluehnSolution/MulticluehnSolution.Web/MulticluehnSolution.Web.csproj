@@ -537,6 +537,8 @@
     </None>
     <Content Include="Views\CrowdfundingPlan\Update.cshtml" />
     <Content Include="Views\CrowdfundingPlan\Index.cshtml" />
+    <Content Include="Views\CrowdfundingPlan\Details.cshtml" />
+    <Content Include="Views\CrowdfundingPlan\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

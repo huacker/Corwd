@@ -14,28 +14,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCrowdPlanByID">
+  <xs:element name="CrowdfundingPlanGetByID">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCrowdPlanByIDResponse">
+  <xs:element name="CrowdfundingPlanGetByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetCrowdPlanByIDResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CrowdfundingPlanGetByIDResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Update">
+  <xs:element name="CrowdfundingPlanUpdate">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Crowdmodel" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateResponse">
+  <xs:element name="CrowdfundingPlanUpdateResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -48,6 +48,30 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="CrowdfundingPlanAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrowdfundingPlanGetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrowdfundingPlanGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CrowdfundingPlanGetAllResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrowdfundingPlanDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrowdfundingPlanDeleteResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

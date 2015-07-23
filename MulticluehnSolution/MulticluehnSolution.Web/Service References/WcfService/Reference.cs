@@ -21,23 +21,35 @@ namespace MulticluehnSolution.Web.WcfService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/TestGetData", ReplyAction="http://tempuri.org/ICrowdfundingPlan/TestGetDataResponse")]
         System.Threading.Tasks.Task<string> TestGetDataAsync(string str);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByID", ReplyAction="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByIDResponse")]
-        string GetCrowdPlanByID(string ID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetByID", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetByIDResponse")]
+        string CrowdfundingPlanGetByID(string ID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByID", ReplyAction="http://tempuri.org/ICrowdfundingPlan/GetCrowdPlanByIDResponse")]
-        System.Threading.Tasks.Task<string> GetCrowdPlanByIDAsync(string ID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetByID", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetByIDResponse")]
+        System.Threading.Tasks.Task<string> CrowdfundingPlanGetByIDAsync(string ID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/Update", ReplyAction="http://tempuri.org/ICrowdfundingPlan/UpdateResponse")]
-        void Update(string Crowdmodel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanUpdate", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanUpdateResponse")]
+        void CrowdfundingPlanUpdate(string Crowdmodel);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/Update", ReplyAction="http://tempuri.org/ICrowdfundingPlan/UpdateResponse")]
-        System.Threading.Tasks.Task UpdateAsync(string Crowdmodel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanUpdate", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanUpdateResponse")]
+        System.Threading.Tasks.Task CrowdfundingPlanUpdateAsync(string Crowdmodel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAdd", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAddResponse")]
         void CrowdfundingPlanAdd(string Crowdmodel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAdd", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanAddResponse")]
         System.Threading.Tasks.Task CrowdfundingPlanAddAsync(string Crowdmodel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetAll", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetAllResponse")]
+        string CrowdfundingPlanGetAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetAll", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanGetAllResponse")]
+        System.Threading.Tasks.Task<string> CrowdfundingPlanGetAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanDelete", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanDeleteResponse")]
+        void CrowdfundingPlanDelete(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanDelete", ReplyAction="http://tempuri.org/ICrowdfundingPlan/CrowdfundingPlanDeleteResponse")]
+        System.Threading.Tasks.Task CrowdfundingPlanDeleteAsync(string ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -75,20 +87,20 @@ namespace MulticluehnSolution.Web.WcfService {
             return base.Channel.TestGetDataAsync(str);
         }
         
-        public string GetCrowdPlanByID(string ID) {
-            return base.Channel.GetCrowdPlanByID(ID);
+        public string CrowdfundingPlanGetByID(string ID) {
+            return base.Channel.CrowdfundingPlanGetByID(ID);
         }
         
-        public System.Threading.Tasks.Task<string> GetCrowdPlanByIDAsync(string ID) {
-            return base.Channel.GetCrowdPlanByIDAsync(ID);
+        public System.Threading.Tasks.Task<string> CrowdfundingPlanGetByIDAsync(string ID) {
+            return base.Channel.CrowdfundingPlanGetByIDAsync(ID);
         }
         
-        public void Update(string Crowdmodel) {
-            base.Channel.Update(Crowdmodel);
+        public void CrowdfundingPlanUpdate(string Crowdmodel) {
+            base.Channel.CrowdfundingPlanUpdate(Crowdmodel);
         }
         
-        public System.Threading.Tasks.Task UpdateAsync(string Crowdmodel) {
-            return base.Channel.UpdateAsync(Crowdmodel);
+        public System.Threading.Tasks.Task CrowdfundingPlanUpdateAsync(string Crowdmodel) {
+            return base.Channel.CrowdfundingPlanUpdateAsync(Crowdmodel);
         }
         
         public void CrowdfundingPlanAdd(string Crowdmodel) {
@@ -97,6 +109,22 @@ namespace MulticluehnSolution.Web.WcfService {
         
         public System.Threading.Tasks.Task CrowdfundingPlanAddAsync(string Crowdmodel) {
             return base.Channel.CrowdfundingPlanAddAsync(Crowdmodel);
+        }
+        
+        public string CrowdfundingPlanGetAll() {
+            return base.Channel.CrowdfundingPlanGetAll();
+        }
+        
+        public System.Threading.Tasks.Task<string> CrowdfundingPlanGetAllAsync() {
+            return base.Channel.CrowdfundingPlanGetAllAsync();
+        }
+        
+        public void CrowdfundingPlanDelete(string ID) {
+            base.Channel.CrowdfundingPlanDelete(ID);
+        }
+        
+        public System.Threading.Tasks.Task CrowdfundingPlanDeleteAsync(string ID) {
+            return base.Channel.CrowdfundingPlanDeleteAsync(ID);
         }
     }
 }

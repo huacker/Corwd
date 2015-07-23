@@ -35,7 +35,7 @@ namespace MulticluehnSolution.BLL
 
         }
 
-        public string GetCrowdPlanByID(string ID)
+        public string CrowdfundingPlanGetByID(string ID)
         {
             CrowdfundingPlanEntityModel model = new CrowdfundingPlanEntityModel();
             model = dao.Find<CrowdfundingPlanEntityModel>(ID);
@@ -44,13 +44,25 @@ namespace MulticluehnSolution.BLL
             return SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model);
         }
 
-        public void Update(string Crowdmodel)
+        public void CrowdfundingPlanUpdate(string Crowdmodel)
         {
 
             CrowdfundingPlanEntityModel model = new CrowdfundingPlanEntityModel();
             model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(Crowdmodel);
             model.SubmitDate = DateTime.Now.ToString("yyyy-MM-dd");
             dao.Update<CrowdfundingPlanEntityModel>(model);
+        }
+
+        public string CrowdfundingPlanGetAll()
+        {
+            List<CrowdfundingPlanEntityModel> lstmodel = dao.FindAll<CrowdfundingPlanEntityModel>();
+            return SerializeHelper.XmlSerialize<List<CrowdfundingPlanEntityModel>>(lstmodel);
+        }
+
+        public void CrowdfundingPlanDelete(string ID)
+        {
+            CrowdfundingPlanEntityModel model = dao.Find<CrowdfundingPlanEntityModel>(ID);
+            dao.Delete<CrowdfundingPlanEntityModel>(model);
         }
     }
 }

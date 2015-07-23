@@ -11,6 +11,8 @@ namespace MulticluehnSolution.EntityModel
     {
 
         public string ID { get; set; }
+        [HiddenInput(DisplayValue = false)]
+        [Display(Name = "提交时间")]
         public string SubmitDate { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 4)]

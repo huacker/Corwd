@@ -7,6 +7,7 @@ using MulticluehnSolution.EntityModel;
 using MulticluehnSolution.Common.Base;
 using MulticluehnSolution.WCFClient;
 using MulticluehnSolution.Common.Utility;
+using System.Net;
 
 namespace MulticluehnSolution.Web.Controllers
 {
@@ -26,15 +27,48 @@ namespace MulticluehnSolution.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            string strMode = client.CrowdfundingPlanGetAll();
+            List<CrowdfundingPlanEntityModel> lstMode = SerializeHelper.XmlDeserialize<List<CrowdfundingPlanEntityModel>>(strMode);
+            return View(lstMode);
         }
 
         public ActionResult Update(string ID)
         {
             ID = "b48f0b40-cc0a-4f28-9bd0-404fa09b21aa";
-            string strModel = client.GetCrowdPlanByID(ID);
+            string strModel = client.CrowdfundingPlanGetByID(ID);
             CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
 
+            return View(model);
+        }
+
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            string strModel = client.CrowdfundingPlanGetByID(id);
+            CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
+
+        // GET: MovieDBs/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            string strModel = client.CrowdfundingPlanGetByID(id);
+            CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
             return View(model);
         }
 
@@ -64,9 +98,17 @@ namespace MulticluehnSolution.Web.Controllers
             if (ModelState.IsValid)
             {
                 model.ID = Guid.NewGuid().ToString();
-                client.Update(SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model));
+                client.CrowdfundingPlanUpdate(SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model));
             }
             return View(model);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            client.CrowdfundingPlanDelete(id);
+            return RedirectToAction("Index");
         }
     }
 }

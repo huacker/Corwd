@@ -1,0 +1,88 @@
+﻿@model MulticluehnSolution.EntityModel.CrowdfundingPlanEntityModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CrowdfundingPlanEntityModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmitDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortAlias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortAlias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrowdfundingPlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrowdfundingPlan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrowdfundingAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrowdfundingAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prerelease)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prerelease)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BegingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BegingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
