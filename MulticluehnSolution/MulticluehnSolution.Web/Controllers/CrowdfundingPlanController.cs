@@ -24,6 +24,20 @@ namespace MulticluehnSolution.Web.Controllers
             return View();
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Update(string ID)
+        {
+            ID = "b48f0b40-cc0a-4f28-9bd0-404fa09b21aa";
+            string strModel = client.GetCrowdPlanByID(ID);
+            CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
+
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -39,16 +53,6 @@ namespace MulticluehnSolution.Web.Controllers
                 client.CrowdfundingPlanAdd(SerializeHelper.XmlSerialize<CrowdfundingPlanEntityModel>(model));
             }
             return View();
-        }
-
-
-        public ActionResult Update(string ID)
-        {
-            ID = "b48f0b40-cc0a-4f28-9bd0-404fa09b21aa";
-            string strModel = client.GetCrowdPlanByID(ID);
-            CrowdfundingPlanEntityModel model = SerializeHelper.XmlDeserialize<CrowdfundingPlanEntityModel>(strModel);
-
-            return View(model);
         }
 
         [HttpPost]

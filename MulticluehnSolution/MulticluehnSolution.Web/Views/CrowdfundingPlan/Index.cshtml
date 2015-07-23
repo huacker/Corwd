@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MulticluehnSolution.EntityModel.CrowdfundingPlanEntityModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortAlias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrowdfundingPlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrowdfundingAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prerelease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BegingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortAlias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrowdfundingPlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CrowdfundingAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prerelease)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BegingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
